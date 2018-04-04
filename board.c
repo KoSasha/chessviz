@@ -23,7 +23,4 @@ void coordinates(board *a){
         }
     }
     swap(a, i, j, i1, j1);
-    /*tmp = a->array[j * 8 + i];
-    a->array[j * 8 + 1] = a->array[j1 * 8 + i1];
-    a->array[j1 * 8 + i1] = tmp;*/
 }
