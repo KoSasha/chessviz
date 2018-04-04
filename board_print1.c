@@ -1,10 +1,8 @@
 #include "board.h"
 
-int main()
-{
+void initial_board(board *a){
 
     int i, j;
-    board *a = (board *)malloc(sizeof(board) * 8 * 8);
 
     a->array[0] = 'r';
     a->array[1] = 'h';
@@ -15,16 +13,16 @@ int main()
     a->array[6] = 'h';
     a->array[7] = 'r';
 
-    for (j = 0; j <= 7; j++){
-        a->array[8 + j] = 'p';
+    for (i = 0; i <= 7; i++){
+        a->array[8 + i] = 'p';
     }
-    for (i = 2; i <=5; i++ ){
-        for (j = 0; j <= 7; j++){
-            a->array[i * 8 + j] = '_';
+    for (j = 2; j <=5; j++ ){
+        for (i = 0; i <= 7; i++){
+            a->array[j * 8 + i] = '_';
         }
     }
-    for (j = 0; j <= 7; j++){
-        a->array[6 * 8 + j] = 'P';
+    for (i = 0; i <= 7; i++){
+        a->array[6 * 8 + i] = 'P';
     }
 
     a->array[56] = 'R';
@@ -35,16 +33,4 @@ int main()
     a->array[61] = 'B';
     a->array[62] = 'H';
     a->array[63] = 'R';
-
-    printf("   A B C D E F G H\n");
-    printf("   _ _ _ _ _ _ _ _\n");
-    for (i = 0; i <= 7; i++){
-        printf("%d ", i + 1);
-        for (j = 0; j <= 7; j++){
-        printf("|%c", a->array[i * 8 + j]);
-        }
-        if (j = 7){
-            printf("|\n");
-        }
-    }
 }
