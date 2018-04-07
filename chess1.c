@@ -1,8 +1,11 @@
 #include <stdio.h>
+#include <string.h>
+#include "board.h"
 
 int main ()
 {
-    char board[8][8] = {
+    board *a = (board *)malloc(sizeof(board) * 8 * 8);
+    a->array[64] = {
         {'r', 'h', 'b', 'k', 'q', 'b', 'h', 'r'},
         {'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'},
         {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
@@ -16,7 +19,7 @@ int main ()
 
     for (i = 0; i < 8; i++){
         for (j = 0; j < 8; j++){
-            printf("%c", board[i][j]);
+            printf("%c", a->array[i * 8 + j]);
         }
         printf("\n");
     }
