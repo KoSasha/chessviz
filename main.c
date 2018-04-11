@@ -19,4 +19,5 @@ int main()
         else
             printf("Ошибка\n");
     }
+    return 0;
 }
