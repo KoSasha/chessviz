@@ -1,12 +1,8 @@
 #include "board.h"
 
-int coordinates(board *a){
+int coordinates(board *a, char i, int j, char i1, int j1){
     int k, g = 0;
-    int j, j1;
-    char i, i1;
     char mass[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
-
-    scanf("%c%d %c%d", &i, &j, &i1, &j1);
 
     for (k = 0; k <= 7; k++){
         if (i == mass[k]){
