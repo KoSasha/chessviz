@@ -5,9 +5,8 @@
 #include <stdlib.h>
 
 typedef struct {
-    char array[8];
     char type;
-    int color;
+    int colour;
 }board;
 
 void initial_board(board *a);
@@ -16,6 +15,12 @@ void print_board(board *a);
 
 int coordinates(board *a, char i, int j, char i1, int j1);
 
-void swap(board *a, char i, int j, char i1, int j1);
+void move(board *a, char i, int j, char i1, int j1);
+
+int colour_checking(board * a, int str, int stl, int colour);
+
+int win_checking(board * a);
+
+int move_checking(board * a, int i, int j, int i1, int j1);
 
 #endif

@@ -3,37 +3,43 @@
 void initial_board(board *a) {
     int i, j;
 
-    a->array[0] = 'r';
-    a->array[1] = 'h';
-    a->array[2] = 'b';
-    a->array[3] = 'k';
-    a->array[4] = 'q';
-    a->array[5] = 'b';
-    a->array[6] = 'h';
-    a->array[7] = 'r';
+    a[0].type = 'r';
+    a[1].type = 'h';
+    a[2].type = 'b';
+    a[3].type = 'k';
+    a[4].type = 'q';
+    a[5].type = 'b';
+    a[6].type = 'h';
+    a[7].type = 'r';
 
     for (i = 0; i <= 7; i++){
-        a->array[8 + i] = 'p';
+        a[8 + i].type = 'p';
+    }
+    for (i = 0; i <= 15; i++) {
+        a[i].colour = 1;
     }
     for (j = 2; j <=5; j++ ){
         for (i = 0; i <= 7; i++){
-            a->array[j * 8 + i] = '_';
+            a[j * 8 + i].type = '_';
         }
     }
     for (i = 0; i <= 7; i++){
-        a->array[6 * 8 + i] = 'P';
+        a[6 * 8 + i].type = 'P';
     }
 
-    a->array[56] = 'R';
-    a->array[57] = 'H';
-    a->array[58] = 'B';
-    a->array[59] = 'Q';
-    a->array[60] = 'K';
-    a->array[61] = 'B';
-    a->array[62] = 'H';
-    a->array[63] = 'R';
-}
+    a[56].type = 'R';
+    a[57].type = 'H';
+    a[58].type = 'B';
+    a[59].type = 'K';
+    a[60].type = 'Q';
+    a[61].type = 'B';
+    a[62].type = 'H';
+    a[63].type = 'R';
 
+    for (i = 48; i <= 63; i++) {
+        a[i].colour = 0;
+    }
+}
 
 void print_board(board *a) {
     int i, j;
@@ -43,7 +49,7 @@ void print_board(board *a) {
         for (j = 0; j <= 7; j++){
             printf("%d ", j + 1);
             for (i = 0; i <= 7; i++){
-                printf("|%c", a->array[j * 8 + i]);
+                printf("|%c", a[j * 8 + i].type);
             }
             printf("|\n");
         }
