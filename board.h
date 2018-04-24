@@ -7,6 +7,7 @@
 typedef struct {
     char array[8];
     char type;
+    int color;
 }board;
 
 void initial_board(board *a);
