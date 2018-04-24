@@ -13,7 +13,9 @@ void initial_board(board *a);
 
 void print_board(board *a);
 
-int coordinates(board *a, char i, int j, char i1, int j1);
+int coordinates(char i, int j, char i1, int j1);
+
+int *convert(char j, int i, char j1, int i1);
 
 void move(board *a, char i, int j, char i1, int j1);
 
