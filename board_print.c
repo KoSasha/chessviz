@@ -16,11 +16,12 @@ void initial_board(board *a) {
         a[8 + i].type = 'p';
     }
     for (i = 0; i <= 15; i++) {
-        a[i].colour = 1;
+        a[i].colour = 0;
     }
     for (j = 2; j <=5; j++ ){
         for (i = 0; i <= 7; i++){
             a[j * 8 + i].type = '_';
+            a[j * 8 + i].colour = 2;
         }
     }
     for (i = 0; i <= 7; i++){
@@ -37,7 +38,7 @@ void initial_board(board *a) {
     a[63].type = 'R';
 
     for (i = 48; i <= 63; i++) {
-        a[i].colour = 0;
+        a[i].colour = 1;
     }
 }
 
