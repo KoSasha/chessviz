@@ -153,13 +153,96 @@ int move_checking(board * a, int j, int i, int j1, int i1){
     }
 
     if ((a[j * 8 + i].type == 'h') || (a[j * 8 + i].type == 'H')) {
-        if(((j1 == (j + 1)) || (j1 == (j - 1))) && (i1 == (i + 2) || (i1 == (i - 2)))) {
+        if (((j1 == (j + 1)) || (j1 == (j - 1))) && (i1 == (i + 2) || (i1 == (i - 2)))) {
             return 1;
         
         }
-        if(((j1 == (j + 2)) || (j1 == (j - 2))) && ((i1 == (i + 1)) || (i1 == (i - 1)))) {
+        if (((j1 == (j + 2)) || (j1 == (j - 2))) && ((i1 == (i + 1)) || (i1 == (i - 1)))) {
             return 1;
         }
+    }
+
+    if ((a[j * 8 + i].type == 'q') || (a[j * 8 + i].type == 'Q')) {
+        if ((i == i1) && (j < j1)) { 
+            for (int k = j + 1; k < j1; k++) {
+                if (a[k * 8 + i].colour != 2) {
+                    return 0;
+                }
+            }
+            return 1;
+        }
+        if ((1 == i1) && (j > j1)) { 
+            for (int k = j1 + 1; k < j; k++) {
+                if (a[k * 8 + i].colour != 2) {
+                    return 0;
+                }
+            }
+            return 1;
+        }
+        if ((i < i1) && (j == j1)) {
+            for (int k = i + 1; k < i1; k++) {
+                if (a[j * 8 + k].colour != 2) {
+                    return 0;
+                }
+            }
+            return 1;
+        }
+        if ((i > i1) && (j == j1)) {
+            for (int k = i1 + 1; k < i; k++) {
+                if (a[j * 8 + k].colour != 2) {
+                    return 0;
+                }
+            }
+            return 1;
+        }
+        if ((j- j1) == (i - i1)) {
+            int k = j - 1;
+            int g = i - 1;
+            while ((k > j1) && (g > i1)) {
+                if (a[k * 8 + g].colour != 2) {
+                    return 0;
+                }
+                k--;
+                g--;
+            }
+            return 1;
+        }    
+        if ((j - j1) == (i1 - i)) {
+            int k = j - 1;
+            int g = i + 1;
+            while ((k > j1) && (g < i1)) {
+                if (a[k * 8 + g].colour != 2) {
+                    return 0;
+                }
+                k--;
+                g++;
+            }
+            return 1;
+        }          
+        if ((j1 - j) == (i - i1)) {
+            int k = j + 1;
+            int g = j - 1;
+            while ((k < j1) && (g > i1)) {
+                if (a[k * 8 + g].colour != 2) {
+                    return 0;
+                }
+                k++;
+                g--;
+            }
+            return 1;
+        }  
+        if ((j1 - j) == (i1 - i)) {
+            int k = j + 1;
+            int g = i + 1;
+            while ((k < j1) && (g < i1)) {
+                if (a[k * 8 + g].colour != 2) {
+                    return 0;
+                }
+                k++;
+                g++;
+            }
+            return 1;
+        }  
     }
 
     return 0;
