@@ -297,5 +297,15 @@ int move_checking(board * a, int j, int i, int j1, int i1){
         }  
    }
 
+    if ((a[j * 8 + i].type == 'k') || (a[j * 8 + i].type == 'K')) {
+        if ((((j1 - j) == 1) || ((j - j1) == 1)) && (i1 == i))
+            return 1;
+        if ((j == j1) && (((i - i1) == 1) || (i1 - i) == 1))
+            return 1;
+        if ((j1 - j == 1) && (((i1 - i) == 1) || ((i - i1) == 1)))
+            return 1;
+        if ((j - j1 == 1) && (((i1 - i) == 1) || ((i - i1) == 1)))
+            return 1;
+    }
     return 0;
 }
