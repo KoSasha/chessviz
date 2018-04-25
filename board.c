@@ -245,5 +245,57 @@ int move_checking(board * a, int j, int i, int j1, int i1){
         }  
     }
 
+    if ((a[j * 8 + i].type == 'b') || (a[j * 8 + i].type == 'B')) {
+        if ((j - j1) == (i - i1)) {
+            int k = j - 1;
+            int g = i - 1;
+            while ((k > j1) && (g > i1))
+            {
+                if (a[k * 8 + g].colour != 2) {
+                    return 0;
+                }
+                k--;
+                g--;
+            }
+            return 1;
+        }    
+        if ((j - j1) == (i1 - i)) {
+            int k = j - 1;
+            int g = i + 1;
+            while ((k > j1) && (g < i1)) {
+                if (a[k * 8 + g].colour != 2) {
+                    return 0;
+                }
+                k--;
+                g++;
+            }
+            return 1;
+        }          
+        if ((j1 - j) == (i - i1)) {
+            int k = j + 1;
+            int g = i - 1;
+            while ((k < j1) && (g > i1)) {
+                if (a[k * 8 + g].colour != 2) {
+                    return 0;
+                }
+                k++;
+                g--;
+            }
+            return 1;
+        }  
+        if ((j1 - j) == (i1 - i)) {
+            int k = j + 1;
+            int g = i + 1;
+            while ((k < j1) && (g < i1)) {
+                if (a[k * 8 + g].colour != 2) {
+                    return 0;
+                }
+                k++;
+                g++;
+            }
+            return 1;
+        }  
+   }
+
     return 0;
 }
