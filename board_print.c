@@ -6,8 +6,8 @@ void initial_board(board *a) {
     a[0].type = 'r';
     a[1].type = 'h';
     a[2].type = 'b';
-    a[3].type = 'k';
-    a[4].type = 'q';
+    a[3].type = 'q';
+    a[4].type = 'k';
     a[5].type = 'b';
     a[6].type = 'h';
     a[7].type = 'r';
